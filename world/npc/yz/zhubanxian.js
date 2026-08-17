@@ -269,14 +269,13 @@
 		// 货币
 		me.add_money(1000000 * 10000);  // 100w黄金
 		me.add_obj("book/wudao", 1000000);  // 100w武道
-		me.add_cash(1000000, "金古易福利");  // 100万元宝
 
 		// 50个九转金丹（朱果#5）
 		me.add_obj("drug/exp#5", 50);
 
 		me.set_temp("jinyiyi_fuli_claimed", 1);
 		me.notify("<hio>金古易对你笑道：这些福利你收好，望你勤加修炼，早日成为一代宗师！</hio>");
-		me.notify("<hio>你获得了全套武神装备、十本秘籍、100万黄金、100万武道、100万元宝、50个九转金丹！</hio>");
+		me.notify("<hio>你获得了全套武神装备、十本秘籍、100万黄金、100万武道、50个九转金丹！</hio>");
 	}
 	this.on_die = function () {
 	    this.call_out(this.relive, 10000);
