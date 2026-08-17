@@ -11,7 +11,8 @@ export default {
         this.element.remove();
         this.isShow = false;
     }, hide: function () {
-        if (this.detailID) {
+        // 如果在详情页（detailID 或元素有 detail class），则返回列表而非关闭对话框
+        if (this.detailID || (this.element && this.element.is(".detail"))) {
             this.hide_detail();
             return false;
         }
@@ -19,6 +20,9 @@ export default {
         this.element.removeClass("detail");
         this.detailID = null;
         Dialog.footerElement.find('.item-commands').empty();
+        // 恢复底部 tab 栏（重新创建 footer 确保 tab 可见）
+        this.create_footer();
+        this.footerChanged(this.selected_item);
     },
     selected_item: 0,
     messages: [],
